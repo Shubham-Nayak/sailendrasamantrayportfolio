@@ -8,9 +8,6 @@ urlpatterns = [
     path('signup/', views.signup),
     path('login/', views.login),
     path('logout/', views.logout),
-    path('addslide/', views.addslide),
-    path('articals/', views.articals),
-    path('artical/', views.artical),
     path('otherpages/', views.otherpages),
     path('addvideos/', views.addvideos),
     path('videos/', views.videos),
@@ -27,8 +24,8 @@ urlpatterns = [
 
     path('deleteotherpages/<int:myid>', views.deleteotherpages),
 
-    path('post/<int:myid>', views.post),
-    path('delete/<int:myid>', views.delete),
+    # path('post/<int:myid>', views.post),
+    # path('delete/<int:myid>', views.delete),
 
 
 

@@ -20,7 +20,7 @@ def index(request):
 
     return render(request,"accounts/contact.html",{"data":data})
    else:
-        return render(request,"accounts/index.html",{'name':'shubham'})
+        return render(request,"accounts/login.html",{'name':'shubham'})
 
 def signup(request):
     if request.method=="POST":
@@ -66,7 +66,7 @@ def login(request):
 def logout(request):
     if request.method=='POST':
         auth.logout(request)
-    return render(request,'accounts/index.html')
+    return render(request,'accounts/login.html')
 
 
 
@@ -81,48 +81,48 @@ def addslide(request):
         form.save()
     return render(request,"accounts/addslide.html")
 @login_required
-def articals(request):
-    form=BlogSpotsForm(request.POST or None, request.FILES or  None)
-    if form.is_valid():
-        obj=form.save(commit=False)
-        obj.save()
-        return redirect("/accounts/#dashboard")
-    return render(request,"accounts/addcmspage.html",{'form':form})
+# def articals(request):
+#     form=BlogSpotsForm(request.POST or None, request.FILES or  None)
+#     if form.is_valid():
+#         obj=form.save(commit=False)
+#         obj.save()
+#         return redirect("/accounts/#dashboard")
+#     return render(request,"accounts/addcmspage.html",{'form':form})
 
-def artical(request):
-    artical=BlogSpots.objects.filter(name=request.user)
+# def artical(request):
+#     artical=BlogSpots.objects.filter(name=request.user)
 
 
-        # return redirect("/accounts/#dashboard")
-    return render(request,"accounts/otherpages.html",{'artical':artical})
+#         # return redirect("/accounts/#dashboard")
+#     return render(request,"accounts/otherpages.html",{'artical':artical})
  
  
 
 
-def edit(request,myid):
+# def edit(request,myid):
     
-    obj=BlogSpots.objects.get(id=myid)
-    form=BlogSpotsForm(request.POST or None,request.FILES or None,instance=obj)
-    if form.is_valid():
-        obj=form.save(commit=False)
-        obj.save()
-        return redirect("/accounts/#dashboard")
+#     obj=BlogSpots.objects.get(id=myid)
+#     form=BlogSpotsForm(request.POST or None,request.FILES or None,instance=obj)
+#     if form.is_valid():
+#         obj=form.save(commit=False)
+#         obj.save()
+#         return redirect("/accounts/#dashboard")
 
-    return render(request,"accounts/editpost.html",{'form':form,'obj':obj})
+#     return render(request,"accounts/editpost.html",{'form':form,'obj':obj})
    
-def delete(request,myid):
-    obj=BlogSpots.objects.get(id=myid)
-    obj.delete()
-    return redirect("/accounts/#dashboard")
+# def delete(request,myid):
+#     obj=BlogSpots.objects.get(id=myid)
+#     obj.delete()
+#     return redirect("/accounts/#dashboard")
 
-    return render(request,"/accounts/#dashboard",{'obj':obj})   
+#     return render(request,"/accounts/#dashboard",{'obj':obj})   
 
-def post(request,myurl):
-    title=myurl.replace('-',' ')
-    blog=BlogSpots.objects.filter(title=title)
+# def post(request,myurl):
+#     title=myurl.replace('-',' ')
+#     blog=BlogSpots.objects.filter(title=title)
     
 
-    return render(request,"thenation/post.html",{"blogs":blog[0]})
+#     return render(request,"thenation/post.html",{"blogs":blog[0]})
 @login_required
 def otherpages(request):
     data=OtherPages.objects.all()
