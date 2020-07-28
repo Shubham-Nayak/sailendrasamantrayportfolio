@@ -1,0 +1,65 @@
+{%extends "accounts/basic.html"%}
+
+{% block title%} Videos{%endblock%}
+
+{% block body%}
+{% if messages %}
+
+    {% for message in messages %}
+	<div class="alert alert-success {{ message.tags }}" role="alert">
+		{{ message }}
+	  </div>
+    {% endfor %}
+
+{% endif %}
+<div class="card height-auto">
+	<div class="card-body">
+		<div class="heading-layout1">
+			<div class="item-title">
+				<h3>Videos</h3>
+			</div>
+		</div>
+		<form class="mg-b-5" method="GET">
+			<div class="row gutters-8">
+				<div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
+					<input type="text" placeholder="Search Here ..." class="form-control" name="search">
+				</div>
+				<div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
+					<button type="submit" class="fw-btn-fill btn-gradient-yellow">SEARCH</button>
+				</div>
+				<div class="col-1-xxxl col-xl-1 col-lg-1 col-12 form-group">
+					<a href="/accounts/artical/"><button type="button" class="fw-btn-fill btn-gradient-yellow">Reload</button></a>
+				</div>
+				<div class="col-7-xxxl col-xl-7 col-lg-3 col-12 form-group">
+				</div>
+			</div>
+		</form>
+		<div class="table-responsive">
+			<table class="table display data-table text-nowrap">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Settings</th>
+					</tr>
+				</thead>
+				<tbody>
+                    {%for i in data%}
+
+							<tr>
+								<td>{{i.title}}</td>
+								<td>
+								<a href="/accounts/deletevideos/{{i.id}}" onclick="return confirm('Are you sure  want to Delete, All the data will be deleted related to this')" ><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+
+                                        <!-- <a href="/accounts/editvideos/{{i.id}}"  ><button type="button" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></button></a> -->
+        
+                                            </td>
+
+							</tr>
+{%endfor%}
+						
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+{%endblock%}

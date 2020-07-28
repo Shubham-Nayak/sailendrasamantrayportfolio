@@ -1,0 +1,60 @@
+{%extends 'thenation/basic.html'%}
+{%block title%}Videos{%endblock%}
+
+{% load static %}
+{%block body%}
+  <!-- start section header -->
+  <div id="" class="home">
+
+
+  <!-- start section services -->
+  <div id="services">
+   
+
+  <div class="container mt-5 m">
+      
+    <!-- start section portfolio -->
+    <div id="portfolio" class="text-center paddsection">
+    
+        <div class="container">
+          <div class="section-title text-center">
+            <h2>Shailendra  Videos</h2>
+          </div>
+        </div>
+    
+        <div class="container">
+            <div class="journal-block">
+              <div class="row">
+                {% load embed_video_tags %}
+                {% for i in video %}
+             
+      
+                <div class="col-lg-4 col-md-6">
+                  <div class="journal-info">
+                    <iframe class="responsive-iframe" src="{{i.imageurl}} " width="100%" data-lity></iframe>
+                   <a href="{{i.imageurl}}" data-lity>	<h6 class="" style="background-color: #f36301;color:white;padding:5px;"><i class="fas fa-download"></i>Full Screen View</h6>
+      </a>
+                    <div class="journal-txt">
+      
+      
+                    </div>
+      
+                  </div>
+                </div>
+      {% endfor %}
+               
+      
+                
+      
+              </div>
+      
+            </div>
+          </div>
+    
+      </div>
+      <!-- End section portfolio -->
+      </div>
+      </div>
+  <!-- end section services -->
+  {%endblock%}
+  

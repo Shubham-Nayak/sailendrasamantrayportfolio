@@ -1,0 +1,39 @@
+{%extends "accounts/basic.html"%}
+
+{% block title%} Contacts{%endblock%}
+
+{% block body%}
+<div class="card height-auto">
+	<div class="card-body">
+		<div class="heading-layout1">
+			<div class="item-title">
+				<h3>Manage Contact</h3>
+			</div>
+		</div>
+		<div class="table-responsive">
+			<table class="table display data-table text-nowrap">
+				<thead>
+					<tr>
+						<th>Full Name</th>
+						<th>Email</th>
+						<th>Subject</th>
+
+						<th>Message</th>
+					</tr>
+				</thead>
+				<tbody>
+                    {% for i in data %}
+							<tr>
+								<td>{{i.name}}</td>
+								<td>{{i.email}}</td>
+								<td>{{i.subject}}</td>
+								<td>{{i.query}}</td>
+
+                            </tr>
+                            {% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+{%endblock%}

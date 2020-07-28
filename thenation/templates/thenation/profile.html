@@ -1,0 +1,59 @@
+{%extends 'thenation/basic.html'%}
+{% load instagram_client %}
+
+{%block title%}{{ instagram_profile_name|capfirst }}Portfolio{%endblock%}
+
+
+{% load static %}
+{%block body%}
+<div id="" class="home">
+
+
+  <!-- start section services -->
+  <div id="services">
+    <div class="container mt-5 m">
+
+    
+<!-- start section portfolio -->
+<div id="portfolio" class="text-center paddsection">
+
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>{{ instagram_profile_name|capfirst }} Portfolio</h2>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+     
+
+          <div class="portfolio-container">
+
+            {% instagram_user_recent_media instagram_profile_name %}
+            {% for media in recent_media %}
+              
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits webdesign">
+              <a class="popup-img" href="{{media.thumbnail_src}}" >
+
+                <img src="{{ media.thumbnail_src }}"/>
+
+              </a>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- End section portfolio -->
+  </div>
+  </div>
+  </div>
+
+
+  
+  {%endblock%}

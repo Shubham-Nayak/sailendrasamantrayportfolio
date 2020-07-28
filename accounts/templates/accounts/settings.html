@@ -1,0 +1,122 @@
+{%extends "accounts/basic.html"%}
+
+{% block title%} Articals{%endblock%}
+
+{% block body%}
+{{data.title}}
+<div class="row">
+	<div class="col-12-xxxl col-xl-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="heading-layout1">
+					<div class="item-title">
+						<h5>Website Informations</h5>
+					</div>
+				</div>
+				<hr/>
+				<div class="row">
+					<div class="col-lg-12 col-12 form-group">
+						<label>Website Title</label>
+						<input type="text" name="title" value="" class="form-control">
+					</div>
+					<div class="col-lg-6 col-6 form-group">
+						<label>Email Address*</label>
+						<input type="text" name="email" value="" class="form-control">
+					</div>
+					<div class="col-lg-6 col-6 form-group">
+						<label>Phone Number*</label>
+						<input value="" type="text" name="mobile" class="form-control">
+                    </div>
+                    <div class="col-lg-6 col-6 form-group">
+						<label>Address</label>
+						<textarea class="textarea form-control" name="meta_description" id="form-message" cols="10" rows="4" style="height: 100px;">{{address}}</textarea>
+                            </div>
+                            	
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-12 form-group">	
+		<div class="gradient-progress-bar">
+			<div class="progressd">
+				<div class="progress-bar bg-skyblue" role="progressbar" style="width: 100%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">Social Media Linkis</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12-xxxl col-xl-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="heading-layout1">
+					<div class="item-title">
+						<h5>Social Media Details</h5>
+					</div>
+				</div>
+				<hr/>
+				<div class="row">
+					<div class="col-xl-6 col-lg-6 col-12 form-group">
+						<label>Facebook Url</label>
+						<input value="" type="text" name="facebook" class="form-control">
+					</div>
+					<div class="col-xl-6 col-lg-6 col-12 form-group">
+						<label>Twitter Url</label>
+						<input value="" type="text" name="twitter" class="form-control">
+					</div>
+					<div class="col-xl-6 col-lg-6 col-12 form-group">
+						<label>Youtube Url</label>
+						<input value="" type="text" name="youtube" class="form-control">
+					</div>
+					<div class="col-xl-6 col-lg-6 col-12 form-group">
+						<label>Instagram Url</label>
+						<input value="" type="text" name="instagram" class="form-control">
+					</div>
+					<div class="col-xl-6 col-lg-6 col-12 form-group">
+						<label>Website</label>
+						<input value="" type="text" name="website" class="form-control">
+					</div>
+					<!-- <input type="hidden" name="seo_url" class="form-control">				 -->
+				</div>
+			</div>
+		</div>
+	</div> 
+	
+	<div class="col-12 form-group mg-t-8">
+		<div class="errormessageformdiv" id="errormessageformdiv"></div>
+		<button type="submit" class="btn-fill-lg font-normal no-radius text-light gradient-pastel-green">Update Settings</button>
+		<a href="<?php echo adminsbase_url('dashboard'); ?>"><button type="button" class="btn-fill-lmd text-light gradient-dodger-blue"> <i class="fas fa-angle-left"></i> Back to list</button></a>
+		
+	</div>
+</div>
+
+<input type="hidden" name="pagetype" value="cms">
+</form>
+<!-- Trigger/Open The Modal -->
+<div class="modal fade" id="mediafiles_logo" role="dialog">
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" data-dismiss="modal">&times;</button>
+	</div>
+	<div class="modal-body">
+	<iframe src="<?php echo base_url('assets/filemanager/dialog.php?type=1&amp;field_id=FieldIDs_logo&amp;relative_url=0'); ?>" frameborder="0" style="width: 100%;height: 500px;"></iframe>
+	</div>
+  </div>
+</div>
+</div>
+
+
+<!-- Trigger/Open The Modal -->
+<div class="modal fade" id="mediafiles_fav" role="dialog">
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" data-dismiss="modal">&times;</button>
+	</div>
+	<div class="modal-body">
+	<iframe src="<?php echo base_url('assets/filemanager/dialog.php?type=1&amp;field_id=FieldIDs_fav&amp;relative_url=0'); ?>" frameborder="0" style="width: 100%;height: 500px;"></iframe>
+	</div>
+  </div>
+</div>
+</div>
+
+{%endblock%}

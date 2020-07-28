@@ -1,0 +1,48 @@
+{%extends "accounts/basic.html"%}
+
+{% block title%} Articals{%endblock%}
+
+{% block body%}
+
+<div class="row">
+	<div class="col-9-xxxl col-xl-9">
+		<div class="card">
+			<div class="card-body">
+				<div class="heading-layout1">
+					<div class="item-title">
+						<!-- <h5><?php echo ($info['pageid'] != '' ? 'Edit Page' : 'Add New Page'); ?></h5> -->
+					</div>
+				</div>
+				<hr/>
+				<div class="row">
+
+<h1 class="center " style="text-align:center;margin-top:80px;"> Write Artical <span>But Read Carefully Before Submiting</span></h1>
+
+    <fieldset disabled>
+      <div class="col-xl-6 col-lg-6 col-12 form-group">
+          
+          <input type="text" id="disabledTextInput" class="form-control" placeholder="{{user.username}}">
+        </div>
+        </fieldset> 
+        <form method="POST" action="/accounts/articals/" enctype="multipart/form-data">{% csrf_token %}
+            <div class="form-row">
+                  
+              {{form}}
+            <button type="submit" class="btn btn-primary mt-2" id="done" value="Submit" onclick="alerts()">Submit</button>
+        </form>
+
+</div>
+
+{%endblock%}
+
+{%block js%}
+<script>
+function alerts{
+    document.getElementById('done').innerHTML=  alert("Form is submited");
+    
+
+}
+
+</script>
+
+{%endblock%}

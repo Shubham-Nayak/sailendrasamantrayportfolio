@@ -1,0 +1,51 @@
+{%extends "accounts/basic.html"%}
+
+{% block title%}Edit Videos{%endblock%}
+
+{% block body%}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{%for i in data%}
+
+<form method="POST" action="/accounts/editvideos/{{i.id}}" enctype="multipart/form-data">{% csrf_token %}
+
+<div class="row">
+	<div class="col-9-xxxl col-xl-9">
+		<div class="card">
+			<div class="card-body">
+				<div class="heading-layout1">
+					<div class="item-title">
+					</div>
+				</div>
+				<hr/>
+				<div class="row">
+					<div class="col-xl-6 col-lg-6 col-12 form-group">
+						<label>Title *</label>
+						<input type="text" name="title" class="form-control" value="{{i.title}}" required>
+					</div>
+					
+					<div class="col-12 form-group">	
+						<label>Video Url</label>
+						<input type="text" name="imageurl" class="form-control" value="{{i.imageurl}}" required>
+                        
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    </div>
+    <button type="submit" class=" mt-2 btn-fill-lg font-normal no-radius text-light gradient-pastel-green" id="done" value="Submit" onclick="alerts()">Submit</button>
+    <!-- <button type="submit" class="btn-fill-lg font-normal no-radius text-light gradient-pastel-green" >Save</button> -->
+    <a href="/accounts/videos/"><button type="button" class="ml-2 mt-2 btn-fill-lmd text-light gradient-dodger-blue"> <i class="fas fa-angle-left"></i> Back to list</button></a>
+    <!-- <input type="hidden" name="id" class="form-control" value="{{i.id}}" > -->
+
+    </form>
+
+
+{% endfor %}
+{%endblock%}

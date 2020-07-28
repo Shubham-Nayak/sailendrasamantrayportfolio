@@ -1,0 +1,73 @@
+{%extends "accounts/basic.html"%}
+
+{% block title%}Add Otherpage{%endblock%}
+
+{% block body%}
+{%for i in data%}
+
+<form method="POST" action="/accounts/editotherpages/{{i.id}}" enctype="multipart/form-data">{% csrf_token %}
+
+<div class="row">
+	<div class="col-9-xxxl col-xl-9">
+		<div class="card">
+			<div class="card-body">
+				<div class="heading-layout1">
+					<div class="item-title">
+					</div>
+				</div>
+				<hr/>
+				<div class="row">
+					<div class="col-xl-6 col-lg-6 col-12 form-group">
+						<label>Page Name *</label>
+						<input type="text" name="title" class="form-control" value="{{i.title}}" required>
+					</div>
+					
+					<div class="col-12 form-group">	
+						<label>Page description</label>
+						<textarea class="textarea form-control mycustomtextarea" name="description" id="form-message" style="height: 200px;">{{i.description}}</textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-3-xxxl col-xl-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="heading-layout1">
+					<div class="item-title">
+						<h5>Settings</h5>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label>Feature Image</label>
+					<input class="form-control"  name="featureimages" type="FILE" placeholder="Choose from file browser" value="{{i.featureimages.url}}">
+					<hr/>
+                </div>
+                {% if i.featureimages %}
+                <div class="col-12 form-group">	
+					<label>Existing Feature Image</label>
+                    <img src="{{i.featureimages.url}}" class="media-img-auto">
+					<div class="media-body space-sm">
+												</div>
+				</div>
+				<hr/>
+  {% endif %}
+				<hr/>
+		
+            </div>
+            
+        </div>
+        
+	</div>
+    </div>
+    <button type="submit" class=" mt-2 btn-fill-lg font-normal no-radius text-light gradient-pastel-green" id="done" value="Submit" onclick="alerts()">Submit</button>
+    <!-- <button type="submit" class="btn-fill-lg font-normal no-radius text-light gradient-pastel-green" >Save</button> -->
+    <a href="/accounts/otherpages/"><button type="button" class="ml-2 mt-2 btn-fill-lmd text-light gradient-dodger-blue"> <i class="fas fa-angle-left"></i> Back to list</button></a>
+    <input type="hidden" name="id" class="form-control" value="{{i.id}}" >
+
+    </form>
+
+
+{% endfor %}
+{%endblock%}
