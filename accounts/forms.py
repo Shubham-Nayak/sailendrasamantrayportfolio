@@ -58,7 +58,7 @@ class ImagesForm(forms.ModelForm):
         widgets={
                   
                    "title":forms.TextInput(attrs={'placeholder':'Title','name':'title','id':'inputname','class':'form-control','type':'text'}),
-                   "imageurl":forms.TextInput(attrs={'placeholder':'Add image','name':'imageurl','id':'inputname','class':'form-control','type':'text'}),
+                   "imageurl":forms.TextInput(attrs={'placeholder':'Add image','name':'imageurl','id':'inputname','class':'form-control','type':'file'}),
                    
                    
                 }

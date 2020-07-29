@@ -184,7 +184,7 @@ def editimages(request,myid=None):
     data=Images.objects.filter(id=myid)
     if request.method == 'POST':
         obj=Images.objects.get(id=myid)
-        form=ImagesForm(request.POST or None,request.FILES or None,instance=obj)
+        form=ImagesForm(request.POST or None,instance=obj)
         if form.is_valid():
             obj=form.save(commit=False)
             obj.save()
@@ -242,7 +242,7 @@ def editvideos(request,myid=None):
                 obj= form.save(commit= False)
 
                 obj.save()
-                messages.success(request, "You successfully updated the post")
+                messages.success(request, "You successfully updated the video")
         return redirect("/accounts/videos")
 
 
