@@ -3,6 +3,13 @@
 
 {%block title%}Shailendra Photo's{%endblock%}
 
+{% block og %}
+<meta property="og:url" content="https://shailendrfolio.herokuapp.com/profile/" />
+<meta property="og:type" content="photo gallery" />
+<meta property="og:title" content="Shailendra Samantray Gallery" />
+<meta property="og:description" content="Shailendra Samantray Is An Youtube Sensation He Is Actor , Dancer And Model . Shailendra Belongs From City Of Silver Cuttack Odisha." />
+<meta property="og:image" content="{%static 'thenation/images/gallery.jpg' %}" />
+{%endblock%}
 
 {% load static %}
 {%block body%}
