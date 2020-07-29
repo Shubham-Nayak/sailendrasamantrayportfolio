@@ -2,6 +2,7 @@
 {% load instagram_client %}
 
 {%block title%}Shailendra Photo's{%endblock%}
+{% load static %}
 
 {% block og %}
 <meta property="og:url" content="https://shailendrfolio.herokuapp.com/profile/" />
@@ -11,7 +12,6 @@
 <meta property="og:image" content="{%static 'thenation/images/gallery.jpg' %}" />
 {%endblock%}
 
-{% load static %}
 {%block body%}
 <div id="" class="home">
 

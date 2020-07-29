@@ -1,5 +1,7 @@
 {%extends 'thenation/basic.html'%}
 {%block title%}Videos{%endblock%}
+{% load static %}
+
 {% block og %}
 <meta property="og:url" content="https://shailendrfolio.herokuapp.com/profile/" />
 <meta property="og:type" content="videos" />
@@ -7,7 +9,6 @@
 <meta property="og:description" content="Shailendra Samantray Is An Youtube Sensation He Is Actor , Dancer And Model . Shailendra Belongs From City Of Silver Cuttack Odisha." />
 <meta property="og:image" content="{%static 'thenation/images/gallery.jpg' %}" />
 {%endblock%}
-{% load static %}
 {%block body%}
   <!-- start section header -->
   <div id="" class="home">
