@@ -20,7 +20,7 @@ class OtherPages(models.Model):
 class CommonMsters(models.Model):
     id=models.AutoField(primary_key=True) 
     title=models.CharField(max_length=25400,default="")
-    imageurl=EmbedVideoField(default="")
+    imageurl=models.CharField(max_length=25400,default="")
 
     def __str__(self):
         class Meta:

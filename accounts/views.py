@@ -234,7 +234,7 @@ def addvideos(request):
 def editvideos(request,myid=None):
     data=CommonMsters.objects.filter(id=myid)
     obj= get_object_or_404(CommonMsters, id=myid)
-    return HttpResponse(obj)
+    # return HttpResponse(obj)
 
     if request.method == 'POST':
         form = CommonMsterForm(request.POST or None, instance= obj)
