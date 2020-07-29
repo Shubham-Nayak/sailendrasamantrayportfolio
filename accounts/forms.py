@@ -1,5 +1,5 @@
 from django import forms
-from .models import OtherPages,CommonMsters
+from .models import OtherPages,CommonMsters,Images
 
 
 
@@ -39,7 +39,26 @@ class CommonMsterForm(forms.ModelForm):
         widgets={
                   
                    "title":forms.TextInput(attrs={'placeholder':'Title','name':'title','id':'inputname','class':'form-control','type':'text'}),
-                   "imageurl":forms.TextInput(attrs={'placeholder':'Add Url','name':'imageurl','id':'inputname','class':'form-control','type':'text'}),
+                   "imageurl":forms.TextInput(attrs={'placeholder':'Add Url','name':'imageurl','id':'inputname','class':'form-control','type':'file'}),
+                   
+                   
+                }
+
+class ImagesForm(forms.ModelForm):
+    class Meta:
+        model=Images
+        fields=[
+            
+            'title',
+            'imageurl',
+         
+
+           
+        ]
+        widgets={
+                  
+                   "title":forms.TextInput(attrs={'placeholder':'Title','name':'title','id':'inputname','class':'form-control','type':'text'}),
+                   "imageurl":forms.TextInput(attrs={'placeholder':'Add image','name':'imageurl','id':'inputname','class':'form-control','type':'text'}),
                    
                    
                 }

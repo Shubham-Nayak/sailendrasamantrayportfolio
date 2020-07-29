@@ -7,7 +7,7 @@ from thenation.models import Contacts
 
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
-from .forms import OtherPageForm,CommonMsterForm
+from .forms import OtherPageForm,CommonMsterForm,ImagesForm
 from django.core.files.storage import FileSystemStorage
 from django.contrib import messages
 import re
@@ -140,6 +140,7 @@ def addotherpages(request):
         return redirect("/accounts/otherpages")
     return render(request,"accounts/addotherpages.html")
 
+
 def editotherpages(request,myid=None):
     data=OtherPages.objects.filter(id=myid)
     if request.method == 'POST':
@@ -164,7 +165,45 @@ def deleteotherpages(request,myid):
 
     return redirect("/accounts/otherpages")
 
-  
+def images(request):
+    data=Images.objects.all()
+    
+
+    return render(request,"accounts/images.html",{"data":data})
+def addimages(request):
+    if request.method == 'POST':
+        title=request.POST.get('title')
+        imageurl=request.FILES.get('imageurl')
+        form=Images(title=title,imageurl=imageurl)
+        form.save()
+        messages.success(request, "You successfully Add Image")
+        return redirect("/accounts/images")
+    return render(request,"accounts/addimages.html")
+
+def editimages(request,myid=None):
+    data=Images.objects.filter(id=myid)
+    if request.method == 'POST':
+        obj=Images.objects.get(id=myid)
+        form=ImagesForm(request.POST or None,request.FILES or None,instance=obj)
+        if form.is_valid():
+            obj=form.save(commit=False)
+            obj.save()
+            messages.success(request, "You successfully Update Images")
+
+        return redirect("/accounts/images")
+
+
+    return render(request,"accounts/editimages.html",{"data":data})
+
+
+   
+def deleteimages(request,myid):
+    obj=Images.objects.get(id=myid)
+    obj.delete()
+    messages.success(request, "Page Was Deleted")
+
+    return redirect("/accounts/images")
+ 
 def videos(request):
     data=CommonMsters.objects.all()
     

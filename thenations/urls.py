@@ -9,9 +9,7 @@ urlpatterns = [
     path('', views.index),
 
     path('about/', views.about),
-    path('profile/', TemplateView.as_view(template_name='thenation/profile.html', extra_context={
-        "instagram_profile_name": "sailendra.samantaray"
-    })),
+    path('profile/',views.profile),
 
     path('videos/', views.videos),
 

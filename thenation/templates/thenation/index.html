@@ -56,7 +56,6 @@
     </div>
   </div>
   <!-- end section about us -->
-  <iframe width="auto" height="auto" src="https://www.youtube.com/embed/x6UiR9Rs6dA" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
 {% endfor %}
   <!-- start section services -->
   <div id="services">
@@ -101,12 +100,11 @@
      
           <div class="portfolio-container">
 
-            {% instagram_user_recent_media "sailendra.samantaray" %}
-            {% for media in recent_media|slice:":9" %}
+            {% for media in images|slice:":9" %}
               
             <div class="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits webdesign">
-              <a class="popup-img" href="{{media.thumbnail_src}}" >
-                <img src="{{ media.thumbnail_src }}"/ >
+              <a class="popup-img" href="{{media.imageurl.url}}" >
+                <img src="{{ media.imageurl.url }}"/ >
 
               </a>
             </div>
@@ -141,7 +139,7 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="journal-info">
-  <iframe width="auto" height="auto" src="{{i.imageurl}}" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+  <iframe width="100%" height="auto" src="{{i.imageurl}}" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
 
               <center><a href="{{i.imageurl}}" data-lity>	<h6 class="" style="background-color: #f36301;color:white;padding:5px;"><i class="fas fa-download"></i>Full Screen View</h6>
               </a></center>

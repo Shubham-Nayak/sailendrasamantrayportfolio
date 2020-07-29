@@ -1,7 +1,7 @@
 {%extends 'thenation/basic.html'%}
 {% load instagram_client %}
 
-{%block title%}{{ instagram_profile_name|capfirst }}Portfolio{%endblock%}
+{%block title%}Shailendra Photo's{%endblock%}
 
 
 {% load static %}
@@ -19,7 +19,7 @@
 
     <div class="container">
       <div class="section-title text-center">
-        <h2>{{ instagram_profile_name|capfirst }} Portfolio</h2>
+        <h2>Photo's Of Shailendra</h2>
       </div>
     </div>
 
@@ -31,13 +31,12 @@
 
           <div class="portfolio-container">
 
-            {% instagram_user_recent_media instagram_profile_name %}
-            {% for media in recent_media %}
+            {% for media in images %}
               
             <div class="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits webdesign">
-              <a class="popup-img" href="{{media.thumbnail_src}}" >
+              <a class="popup-img" href="{{media.imageurl.url}}" >
 
-                <img src="{{ media.thumbnail_src }}"/>
+                <img src="{{ media.imageurl.url }}"/>
 
               </a>
             </div>

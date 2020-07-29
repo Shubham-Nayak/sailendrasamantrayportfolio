@@ -18,6 +18,8 @@ def index(request):
     # return HttpResponse(name_list)
 
     video=CommonMsters.objects.all()
+    images=Images.objects.all()
+
     data=CommonMsters.objects.all()
     currenttime = datetime.datetime.now().strftime('%H:%M:%S')
 
@@ -41,14 +43,16 @@ def index(request):
     #         res = "<iframe width=\"560\" height=\"315\" src=\"%s\" frameborder=\"0\" allowfullscreen></iframe>" %(embed_url)
     #         {'video'}
 
-    allprod={'data':name,'video':video}
+    allprod={'data':name,'video':video,'images':images}
     return render(request,"thenation/index.html",allprod)
 
 
 def about(request):
     return render(request,"thenation/about.html")
 def profile(request):
-    return render(request,"thenation/profile.html")
+    images=Images.objects.all()
+
+    return render(request,"thenation/profile.html",{"images":images})
 
 def videos(request):
     video=CommonMsters.objects.all().order_by('id').reverse()
