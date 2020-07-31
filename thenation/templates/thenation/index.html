@@ -98,16 +98,17 @@
         <div class="col-md-12">
 
      
-          <div class="row">
+          <div class="portfolio-container">
 
             {% for media in images|slice:":9" %}
               
-            <div class="col-lg-4 col-md-6 ">
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding uikits webdesign">
               <a class="popup-img" href="{{media.imageurl.url}}" >
                 <img src="{{ media.imageurl.url }}"/  title="{{media.title}}" alt="{{media.title}}" action="{{media.title}}">
 
               </a>
             </div>
+            
             <!-- {% if forloop.counter == 3 %}
             {% endif %} -->
             {% endfor %}
