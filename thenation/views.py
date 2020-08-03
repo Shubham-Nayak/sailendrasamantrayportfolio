@@ -14,11 +14,11 @@ import json
 # Create your views here.
 
 def index(request):
-    name_list=OtherPages.objects.all()
+    name_list=OtherPages.objects.all().order_by('-id')
     # return HttpResponse(name_list)
 
-    video=CommonMsters.objects.all()
-    images=Images.objects.all()
+    video=CommonMsters.objects.all().order_by('-id')
+    images=Images.objects.all().order_by('-id')
 
     data=CommonMsters.objects.all()
     currenttime = datetime.datetime.now().strftime('%H:%M:%S')
@@ -50,12 +50,12 @@ def index(request):
 def about(request):
     return render(request,"thenation/about.html")
 def profile(request):
-    images=Images.objects.all()
+    images=Images.objects.all().order_by('-id')
 
     return render(request,"thenation/profile.html",{"images":images})
 
 def videos(request):
-    video=CommonMsters.objects.all().order_by('id').reverse()
+    video=CommonMsters.objects.all().order_by('-id')
     return render(request,"thenation/videos.html",{'video':video})
 
 
