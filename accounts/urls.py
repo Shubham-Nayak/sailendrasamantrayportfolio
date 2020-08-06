@@ -34,6 +34,16 @@ urlpatterns = [
 
     path('deleteimages/<int:myid>', views.deleteimages),
 
+
+    
+    path('blog/', views.blog),
+
+    path('addblog/', views.addblog),
+
+    path('editblog/<int:myid>', views.editblog),
+
+    path('deleteblog/<int:myid>', views.deleteblog),
+
     # path('post/<int:myid>', views.post),
     # path('delete/<int:myid>', views.delete),
 

@@ -14,6 +14,10 @@ urlpatterns = [
 
 
     path('videos/', views.videos),
+    path('blogs/', views.blogs),
+    path('blog/<int:myid>', views.blog),
+
+
 
     path('admin/', views.admin),
     path('saveform/', views.saveform),

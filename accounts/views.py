@@ -7,7 +7,7 @@ from thenation.models import Contacts
 
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
-from .forms import OtherPageForm,CommonMsterForm,ImagesForm
+from .forms import *
 from django.core.files.storage import FileSystemStorage
 from django.contrib import messages
 import re
@@ -71,51 +71,43 @@ def logout(request):
 
 
 
-def addslide(request):
-    if request.method=="POST" and request.FILES['image']:
-        
-        desc=request.POST.get('desc')
-        image=request.FILES['image']
-              
-        form=SliderImage(desc=desc,images=image)
-        form.save()
-    return render(request,"accounts/addslide.html")
+
 @login_required
-# def articals(request):
-#     form=BlogSpotsForm(request.POST or None, request.FILES or  None)
-#     if form.is_valid():
-#         obj=form.save(commit=False)
-#         obj.save()
-#         return redirect("/accounts/#dashboard")
-#     return render(request,"accounts/addcmspage.html",{'form':form})
+def addblog(request):
+    form=BlogForm(request.POST or None)
+    if form.is_valid():
+        obj=form.save(commit=False)
+        obj.save()
+        return redirect("/accounts/blog")
+    return render(request,"accounts/addblog.html",)
 
-# def artical(request):
-#     artical=BlogSpots.objects.filter(name=request.user)
+def blog(request):
+    blog=Blog.objects.all()
 
 
-#         # return redirect("/accounts/#dashboard")
-#     return render(request,"accounts/otherpages.html",{'artical':artical})
+        # return redirect("/accounts/#dashboard")
+    return render(request,"accounts/blog.html",{'blog':blog})
  
  
 
 
-# def edit(request,myid):
+def editblog(request,myid):
     
-#     obj=BlogSpots.objects.get(id=myid)
-#     form=BlogSpotsForm(request.POST or None,request.FILES or None,instance=obj)
-#     if form.is_valid():
-#         obj=form.save(commit=False)
-#         obj.save()
-#         return redirect("/accounts/#dashboard")
-
-#     return render(request,"accounts/editpost.html",{'form':form,'obj':obj})
+    obj=Blog.objects.get(id=myid)
+    form=BlogForm(request.POST or None,instance=obj)
+    if form.is_valid():
+        obj=form.save(commit=False)
+        obj.save()
+        return redirect("/accounts/blog")
+    
+    return render(request,"accounts/editblog.html",{'form':form,'blog':obj})
    
-# def delete(request,myid):
-#     obj=BlogSpots.objects.get(id=myid)
-#     obj.delete()
-#     return redirect("/accounts/#dashboard")
+def deleteblog(request,myid):
+    obj=Blog.objects.get(id=myid)
+    obj.delete()
+    return redirect("/accounts/blog")
 
-#     return render(request,"/accounts/#dashboard",{'obj':obj})   
+    # return render(request,"/accounts/",{'obj':obj})   
 
 # def post(request,myurl):
 #     title=myurl.replace('-',' ')

@@ -41,3 +41,16 @@ class Images(models.Model):
     def __str__(self):
         return self.title
 
+class Blog(models.Model):
+    id=models.AutoField(primary_key=True)
+    title=models.CharField(max_length=25400,default="")
+    description=models.CharField(max_length=25000,default="")   
+    createdon=models.CharField(max_length=25400,default="") 
+
+    def __str__(self):
+        class Meta:
+            ordering=['-time']
+
+    def __str__(self):
+        return self.title
+

@@ -1,0 +1,43 @@
+{%extends "accounts/basic.html"%}
+
+{% block title%} Blogs{%endblock%}
+
+{% block body%}
+
+<div class="card height-auto">
+	<div class="card-body">
+		<div class="heading-layout1">
+			<div class="item-title">
+				<h3>Blogs</h3>
+			</div>
+		</div>
+
+		<div class="table-responsive">
+			<table class="table display data-table text-nowrap">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Settings</th>
+					</tr>
+				</thead>
+				<tbody>
+                    {%for i in blog%}
+
+							<tr>
+								<td>{{i.title}}</td>
+								<td>
+								<a href="/accounts/deleteblog/{{i.id}}" onclick="return confirm('Are you sure  want to Delete, All the data will be deleted related to this')" ><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+
+                                        <a href="/accounts/editblog/{{i.id}}"  ><button type="button" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></button></a>
+        
+                                            </td>
+
+							</tr>
+{%endfor%}
+						
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+{%endblock%}

@@ -58,7 +58,29 @@ def videos(request):
     video=CommonMsters.objects.all().order_by('-id')
     return render(request,"thenation/videos.html",{'video':video})
 
+def blogs(request):
+    blog=Blog.objects.all().order_by('-id')
+    paginator=Paginator(blog,10)
+    page = request.GET.get('page')
+    try:
+        name = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        name = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        name= paginator.page(paginator.num_pages)
+    return render(request,"thenation/post.html",{'blog':blog,'data':name})
 
+
+def blog(request,myid):
+   
+    # title=myurl.replace('-',' ')
+    blog=Blog.objects.get(id=myid)
+    
+    
+    recom=Blog.objects.all()
+    return render(request,"thenation/blog.html",{"blogs":blog,"recom":recom})
 
 def saveform(request):
     if request.method=="POST":

@@ -1,5 +1,5 @@
 from django import forms
-from .models import OtherPages,CommonMsters,Images
+from .models import OtherPages,CommonMsters,Images,Blog
 
 
 
@@ -63,3 +63,25 @@ class ImagesForm(forms.ModelForm):
                    
                 }
 
+
+class BlogForm(forms.ModelForm):
+    class Meta:
+        model=Blog
+        fields=[
+            
+            'title',
+            'description',
+            'createdon'
+         
+
+           
+        ]
+        widgets={
+                  
+                   "title":forms.TextInput(attrs={'placeholder':'Title','name':'title','id':'inputname','class':'form-control','type':'text'}),
+                   "description":forms.TextInput(attrs={'placeholder':'Add Description','name':'description','id':'inputname','class':'form-control','type':'text'}),
+                   "createdon":forms.TextInput(attrs={'placeholder':'Date','name':'createdon','id':'inputname','class':'form-control','type':'text'}),
+
+                   
+                   
+                }
