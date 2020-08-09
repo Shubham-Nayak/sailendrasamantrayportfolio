@@ -45,7 +45,7 @@ class Blog(models.Model):
     id=models.AutoField(primary_key=True)
     title=models.CharField(max_length=25400,default="")
     description=models.CharField(max_length=25000,default="")   
-    createdon=models.CharField(max_length=25400,default="") 
+    createdon=models.CharField(null=True, blank=True) 
 
     def __str__(self):
         class Meta:
