@@ -16,6 +16,7 @@ import json
 def index(request):
     name_list=OtherPages.objects.all().order_by('-id')
     # return HttpResponse(name_list)
+    settings=Settings.objects.get(id=1)
 
     video=CommonMsters.objects.all().order_by('-id')
     images=Images.objects.all().order_by('-id')
@@ -43,7 +44,7 @@ def index(request):
     #         res = "<iframe width=\"560\" height=\"315\" src=\"%s\" frameborder=\"0\" allowfullscreen></iframe>" %(embed_url)
     #         {'video'}
 
-    allprod={'data':name,'video':video,'images':images}
+    allprod={'data':name,'video':video,'images':images,'settings':settings}
     return render(request,"thenation/index.html",allprod)
 
 

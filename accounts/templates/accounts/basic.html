@@ -99,7 +99,7 @@
                           </div>
                           <div class="item-content">
                               <ul class="settings-list">
-                                  <li><a href="/accounts/settings/"><i class="flaticon-user"></i>Website Settings</a></li>
+                                  <li><a href="/accounts/updatesettings/"><i class="flaticon-user"></i>Website Settings</a></li>
                                   <!--<li><a href="<?php //echo adminsbase_url('dashboard/changepassword/"><i class="flaticon-list"></i>Change Password</a></li>-->
                                   	{% if user.is_authenticated %}
           <li><a href="javascript:{document.getElementById('logout').submit()}"><i class="flaticon-turn-off"></i>Log Out</a></li>
@@ -191,6 +191,10 @@
                       <li class="nav-item sidebar-nav-item no-arrow">
                           <a href="/accounts/contact/" class="nav-link" style="color: #edf0f38c;"><i class="flaticon-open-book"></i>Manage Contact</a>
                       </li>
+
+                      <li class="nav-item sidebar-nav-item no-arrow">
+                        <a href="/accounts/updatesettings/" class="nav-link" style="color: #edf0f38c;"><i class="flaticon-open-book"></i>Web Settings</a>
+                    </li>
   
                       
           <li class="nav-item sidebar-nav-item no-arrow">

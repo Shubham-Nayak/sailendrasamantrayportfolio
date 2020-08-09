@@ -247,6 +247,22 @@ def deletevideos(request,myid):
 
     return redirect("/accounts/videos")
 
+
+
+def updatesettings(request):
+    data=Settings.objects.get(id=1)
+    if request.method == 'POST':
+        obj=Settings.objects.get(id=1)
+        form=SettingsForm(request.POST or None,request.FILES or None,instance=obj)
+        if form.is_valid():
+            obj=form.save(commit=False)
+            obj.save()
+            messages.success(request, "You successfully Update Page")
+
+        return redirect("/accounts/updatesettings")
+
+
+    return render(request,"accounts/updatesettings.html",{'blog':data})
 # def settings(request):
 #     data=CommonMsters.objects.all()
 #     return HttpResponse(data)

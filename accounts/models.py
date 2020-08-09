@@ -54,3 +54,23 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
+class Settings(models.Model):
+    id=models.AutoField(primary_key=True)
+    title=models.CharField(max_length=25400,default="")
+    email=models.CharField(max_length=25400,default="")
+    photo=models.ImageField(default="")   
+    mobile=models.CharField(max_length=25400,default="")
+    address=models.CharField(max_length=25400,default="") 
+    facebook=models.CharField(max_length=25400,default="") 
+    instagram=models.CharField(max_length=25400,default="") 
+    twitter=models.CharField(max_length=25400,default="") 
+
+
+
+    def __str__(self):
+        class Meta:
+            ordering=['-time']
+
+    def __str__(self):
+        return self.email
+

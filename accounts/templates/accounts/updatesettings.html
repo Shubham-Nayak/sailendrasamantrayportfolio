@@ -1,0 +1,121 @@
+{%extends "accounts/basic.html"%}
+
+{% block title%}Edit Blog{%endblock%}
+
+{% block body%}
+
+<form method="POST" action="/accounts/updatesettings/" enctype="multipart/form-data">{% csrf_token %}
+
+<div class="row">
+	<div class="col-9-xxxl col-xl-9">
+		<div class="card">
+			<div class="card-body">
+				<div class="heading-layout1">
+					<div class="item-title">
+					</div>
+				</div>
+				<hr/>
+				<div class="row">
+					<div class="col-xl-12 col-lg-12 col-12 form-group">
+						<label>Full Name *</label>
+						<input type="text" name="title" class="form-control" value="{{blog.title}}" required>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-12 form-group">
+						<label>Mobile *</label>
+						<input type="text" name="mobile" class="form-control" value="{{blog.mobile}}" required>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-12 form-group">
+						<label>Email *</label>
+						<input type="text" name="email" class="form-control" value="{{blog.email}}" required>
+					</div>
+					
+					<div class="col-12 form-group">	
+						<label>Full Address *</label>
+						<textarea class="textarea form-control mycustomtextarea" name="address" id="form-message" style="height: 200px;" value="{{blog.address}}" required>{{blog.address}}</textarea>
+					</div>
+
+		
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-3-xxxl col-xl-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="heading-layout1">
+					<div class="item-title">
+						<h5>Settings</h5>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label>Feature Image</label>
+					<input class="form-control"  name="photo" type="FILE" placeholder="Choose from file browser" value="">
+
+					<hr/>
+                </div>
+                {% if blog.photo %}
+                <div class="col-12 form-group">	
+					<label>Existing Feature Image</label>
+                    <img src="{{blog.photo.url}}" class="media-img-auto">
+					<div class="media-body space-sm">
+												</div>
+				</div>
+				<hr/>
+  {% endif %}
+				<hr/>
+		
+            </div>
+            
+        </div>
+        
+	</div>
+	<div class="col-12 form-group">	
+		<div class="gradient-progress-bar">
+			<div class="progressd">
+				<div class="progress-bar bg-skyblue" role="progressbar" style="width: 100%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">Social Media Linkis</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12-xxxl col-xl-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="heading-layout1">
+					<div class="item-title">
+						<h5>Social Media Details</h5>
+					</div>
+				</div>
+				<hr/>
+				<div class="row">
+					<div class="col-xl-6 col-lg-6 col-12 form-group">
+						<label>Facebook Url</label>
+						<input type="text" name="facebook" class="form-control" value="{{blog.facebook}}" required>
+
+					</div>
+					<div class="col-xl-6 col-lg-6 col-12 form-group">
+						<label>Twitter Url</label>
+						<input type="text" name="twitter" class="form-control" value="{{blog.twitter}}" required>
+
+					</div>
+				
+					<div class="col-xl-6 col-lg-6 col-12 form-group">
+						<label>Instagram Url</label>
+						<input type="text" name="instagram" class="form-control" value="{{blog.instagram}}" required>
+
+					</div>
+				
+					<!-- <input type="hidden" name="seo_url" class="form-control">				 -->
+				</div>
+			</div>
+		</div>
+	</div> 
+    </div>
+    <button type="submit" class=" mt-2 btn-fill-lg font-normal no-radius text-light gradient-pastel-green" id="done" value="Submit" onclick="alerts()">Submit</button>
+    <!-- <button type="submit" class="btn-fill-lg font-normal no-radius text-light gradient-pastel-green" >Save</button> -->
+
+
+    </form>
+
+
+{%endblock%}

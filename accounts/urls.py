@@ -44,6 +44,10 @@ urlpatterns = [
 
     path('deleteblog/<int:myid>', views.deleteblog),
 
+
+    path('updatesettings/', views.updatesettings),
+
+
     # path('post/<int:myid>', views.post),
     # path('delete/<int:myid>', views.delete),
 
