@@ -22,7 +22,7 @@ def index(request):
     images=Images.objects.all().order_by('-id')
 
     data=CommonMsters.objects.all()
-    currenttime = datetime.datetime.now().strftime('%H:%M:%S')
+    # currenttime = datetime.datetime.now().strftime('%H:%M:%S')
 
     #pagination
     paginator=Paginator(name_list,8)
