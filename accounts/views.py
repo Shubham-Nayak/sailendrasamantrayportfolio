@@ -22,6 +22,7 @@ def index(request):
    else:
         return render(request,"accounts/login.html",{'name':'shubham'})
 
+
 def signup(request):
     if request.method=="POST":
         #user singnup
