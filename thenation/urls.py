@@ -12,6 +12,7 @@ urlpatterns = [
  
     path('profile/',views.profile),
 
+    path('home/', views.home, name='home'),
 
     path('videos/', views.videos),
     path('blogs/', views.blogs),

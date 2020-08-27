@@ -10,6 +10,7 @@ from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 import datetime
 import re
 import json
+import requests
 
 # Create your views here.
 
@@ -144,3 +145,12 @@ def admin(request):
        
 
     return render(request,"thenation/articals.html")'''
+def home(request):
+    response = requests.get('http://127.0.0.1:8000/api/shubham/')
+    geodata = response.json()
+    # return render(request, 'core/home.html', {
+    #     'ip': geodata['ip'],
+    #     'country': geodata['country_name']
+    # })
+    
+    return HttpResponse(geodata)
